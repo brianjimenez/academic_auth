@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+
+#error-page {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 495px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#error-message {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 130px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+#error-encore {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 225px;
+    font-size: 24px;
+}
+#error-encore a {
+    color: #0099DD;
+    text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+
+<section id="error-page">
+    <div id="error-message">
+        Oops!!!<br>
+        #{{=code}}
+        <img src="{{=URL('static', 'images/server_logo.png')}}"/>
+    </div>
+    <div id="error-encore">
+        <a href="{{=URL('default','index')}}">Try again</a>
+    </div>
+</section>
+</body>
+</html>

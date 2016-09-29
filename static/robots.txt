@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /pid/admin
+Disallow /pid/academic_auth/static
