@@ -91,6 +91,9 @@ ENV/
 # PyCharm
 .idea/
 
+# OSX
+.DS_Store
+
 # This project
 databases/
 cache/

@@ -16,6 +16,42 @@ def index():
     return dict()
 
 
+def check_academic_email(email):
+    if not email:
+        return False
+    else:
+        try:
+            email = email.lower()
+            domain = email.split('@')[1]
+            subdomains = domain.split('.')
+            if subdomains[-1] == 'edu':
+                return True
+            else:
+                if 'ac' in subdomains:
+                    return True
+                if len(subdomains) == 2:
+                    num_domains = db(db.institutions.effective == domain).count()
+                else:
+                    to_check = []
+                    for i in range(0, len(subdomains)):
+                        to_check.append('.'.join(subdomains[i:]))
+                    num_domains = db(db.institutions.effective.contains(to_check, all=False)).count()
+                return num_domains > 0
+        except:
+            return False
+        return False
+
+
+@request.restful()
+def api():
+    response.view = 'generic.json'
+    def GET(action, email_address):
+        if not action == 'auth':
+            raise HTTP(400)
+        return dict(result=check_academic_email(email_address), email=email_address)
+
+    return locals()
+
 ##################################################
 ##                  UTIL VIEWS
 ##################################################
