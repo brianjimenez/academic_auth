@@ -13,7 +13,7 @@ def index():
     """
     Landing page
     """
-    return dict()
+    return dict(num_entries=db(db.institutions.id).count())
 
 
 def check_academic_email(email):
