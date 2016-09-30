@@ -3,13 +3,13 @@
 if 0:
     from __init__ import *
 
-from db_conf import connection_url
+import db_conf
 
 ## if SSL/HTTPS is properly configured and you want all HTTP requests to
 ## be redirected to HTTPS, uncomment the line below:
 # request.requires_https()
 
-db = DAL(connection_url,
+db = DAL(db_conf.connection_url,
          pool_size=1, check_reserved=['all'], lazy_tables=False,
          migrate_enabled=True, fake_migrate_all=False)
 
