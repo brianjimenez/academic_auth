@@ -95,4 +95,5 @@ ENV/
 databases/
 cache/
 sessions/
+errors/
 db_conf.py
